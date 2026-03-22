@@ -31,10 +31,10 @@ body{
         color: powderblue;
     }
 
-    p{
+    .text{
             heigth:20px;
-        font-size: 40px;
-        background-color: rgba(2, 2, 66, 0.4);
+        font-size: 50px;
+        background-color: powderblue ;
     }
     .container{
         display: flex;

@@ -45,6 +45,7 @@ h2{
     
     
 .conteiner{
+        display:flex
         width:300px;
 }
         

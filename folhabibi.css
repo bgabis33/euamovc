@@ -34,14 +34,13 @@ body{
 
     p{
         font-size: 40px;
-        background-color: rgba(2, 2, 66, 0.4);
+        background-color: blue;
     }
     .container{
         display: flex;
         
     }
     img{
-margin-right: 20px;
         width: 200px;
     }
 

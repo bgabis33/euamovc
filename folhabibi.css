@@ -33,15 +33,15 @@ body{
     }
 
     p{
-        font-size: 40px;
-        background-color: blue;
+        font-size: 70px;
+        background-color: white;
     }
     .container{
         display: flex;
         
     }
     img{
-        width: 200px;
+        width: 300px;
     }
 
 

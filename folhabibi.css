@@ -42,10 +42,11 @@ h2{
     .container{
         display: flex;
         
-    }
-    img{
-        width: 400px;
-    }
-
+    
+    
+.conteiner{
+        width:300px;
+}
+        
 
     

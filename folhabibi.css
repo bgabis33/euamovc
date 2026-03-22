@@ -1,53 +1,49 @@
 
+body{
+        background-color: rgba(255, 182, 193, 0.3);;
+    }
+    header{
+        background-image: url(imagens/cute2.jpg);
+        height: 100%;
+        padding-top: 1px;
+    }
+   
+   #wiu {
+    font-size: 19px;
+   }
+
+     .hero{
+        position: sticky;
+        bottom: 0px;
+        top: 0px;
+        text-align: center;
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+    .overflow{
+        
+        text-align: center;
+        font-family: sans-serif;
+        background-color: rgba(255, 182, 193, 0.5);
+    }
+    
+    h3{
+        text-align: center;
+        color: powderblue;
+    }
+
+    p{
+        font-size: 40px;
+        background-color: rgba(2, 2, 66, 0.4);
+    }
+    .container{
+        display: flex;
+        
+    }
+    img{
+margin-right: 20px;
+        width: 200px;
+    }
 
 
-    body {
-  background-color: pink;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 10px;
-}
-
-/* TÍTULO */
-h1 {
-  text-align: center;
-  font-size: 40px;
-  margin: 0;
-}
-
-.sub {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* BARRA ROSA */
-h2 {
-  text-align: center;
-  background-color: #e8bcbc;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-/* LINHA */
-.linha {
-  font-size: 18px;
-  margin: 20px 0;
-}
-
-/* BLOCO */
-.card {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* IMAGEM */
-.card img {
-  width: 60%;
-}
-
-/* TEXTO */
-.card p {
-  width: 40%;
-  font-size: 18px;
-}
+    

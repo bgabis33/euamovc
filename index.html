@@ -1,59 +1,134 @@
 
- <!DOCTYPE html>
-    <html lang="pt-br">
+
+    
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<title>bibia</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width-device-width, ititial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="folhabibi.css">
+<meta charset="UTF-8">
+<title>Coisas que me lembram você 💕</title>
 
+<style>
+body {
+    background-color: #ffe6f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    text-align: center;
+}
 
+/* HEADER */
+header {
+    background-color: #ffb6c1;
+    padding: 20px;
+    color: white;
+    font-size: 28px;
+}
+
+/* CARDS */
+.container {
+    padding: 30px;
+}
+
+.card {
+    background-color: #fff0f5;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card p {
+    margin-top: 10px;
+    color: #d63384;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffb6c1;
+    color: white;
+    font-size: 18px;
+}
+
+/* CORAÇÕES */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff69b4;
+    font-size: 20px;
+    animation: subir 6s linear infinite;
+}
+
+/* animação */
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
 </head>
 
-
 <body>
-    <header class="hero">
-        <h1>Hello <3</h1>
-        
-       
-        <h6>Para meu amor<3</h6>
-    </header>
-    <div class="overflow">
-        <h2>Coisas que me lembram vc</h2>
-       </div>
 
-   <div class="container">
-     
-  
+<header>
+💖 Coisas que me lembram você 💖
+</header>
 
-  
-   
+<div class="container">
 
-<h3>------------------------<3</h3>
-    <div class= "wiu">
-    <img src="imagens/wiu.jpg"> Vc ouvia em call,postava nas notas e no story,impossivel n lembrar de vc quando toca.
+    <div class="card">
+        <img src="https://i.imgur.com/9Z6XQ6p.png">
+        <p>Coisinhas fofas 🧸</p>
     </div>
 
-    <h3>------------------------<3</h3>
+    <div class="card">
+        <img src="https://i.imgur.com/3QZQZ4E.png">
+        <p>Doces e delicados 🍓</p>
+    </div>
 
-        <div class="ban">
-      <img src="imagens/tama.jpg"> Quando assisto lembro de ti,acho que talvez pela forma que ele ama ela ser parecida com a sua.
-  </div>
-   <h3>------------------------<3</h3>
+    <div class="card">
+        <img src="https://i.imgur.com/0y0y0y0.png">
+        <p>Céu rosinha ao entardecer 🌸</p>
+    </div>
 
-<div class="meme">
-     <img src="imagens/meme.jpg">Vc sempre manda, n essa mais uma identica q eu n consegui achar no nosso chat.
-    
 </div>
- 
- 
-        
-    </div>
-    
-    <p>Não sou muito boa em escrever mais Eu te amo e acho importante começar com isso,você é literalmente meu par somos feitos um pro
-      outro,eu sou estressada e vc calmo na maioria das vezes,vc me conforta e me faz sentir segura ja me deu alerta de gayzisse minha aqui🙄,eu amo você e eu amo estar 
-      com você,desculpa por ser chata é paranoica mais é só porque eu te amo tantão e não quero perder você </p>
 
-  <a href="https://youtu.be/4ukPJTILszE?si=a_KzVA0P3gdVPJhv" target="_blanck"></a>
+<footer>
+✨ Você é como essas coisas: suave, linda e impossível de não notar. ✨
+</footer>
 
-    
+<!-- CORAÇÕES GERADOS -->
+<script>
+function criarCoracao() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>

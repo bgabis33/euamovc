@@ -15,71 +15,73 @@
     box-sizing: border-box;
 }
 
-/* FUNDO ANIMADO */
 body {
     height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #ffe6f0, #fff);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #ffe6f0, #ffd6eb, #fff, #ffe6f0);
-    background-size: 400% 400%;
-    animation: fundo 10s ease infinite;
 }
 
-@keyframes fundo {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* BOTÃO */
-.botao {
+/* JOGO */
+.jogo {
     position: absolute;
-    padding: 12px 20px;
-    border: none;
-    background: #e75480;
-    color: white;
-    border-radius: 20px;
+    text-align: center;
+}
+
+.jogo h2 {
+    color: #e75480;
+}
+
+/* CORAÇÕES JOGO */
+.coracao {
+    position: absolute;
+    font-size: 28px;
     cursor: pointer;
-    font-size: 14px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.2s;
+}
+
+.coracao:hover {
+    transform: scale(1.3);
 }
 
 /* CARTA */
 .carta {
     width: 90%;
     max-width: 360px;
-    background: #ffffff;
+    background: #fff;
     padding: 30px 22px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(255,182,193,0.3);
     text-align: center;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: 0.8s;
+    display: none;
+    animation: aparecer 0.8s ease;
+
+    /* SOMBRA MAIS FOFA */
+    box-shadow: 
+        0 10px 25px rgba(255,182,193,0.4),
+        0 0 15px rgba(255,105,180,0.2);
 }
 
-.carta.ativa {
-    transform: translateY(0);
-    opacity: 1;
+@keyframes aparecer {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-/* EFEITO FLUTUAR */
-.carta:hover {
-    transform: translateY(-5px);
-}
-
-/* TÍTULO COM BRILHO */
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     color: #e75480;
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(231,84,128,0.4);
 }
 
-/* TEXTO */
 #texto {
     font-size: 14px;
     line-height: 1.7;
@@ -87,18 +89,35 @@ h1 {
     white-space: pre-line;
 }
 
-/* FINAL */
 .final {
     margin-top: 15px;
     color: #e75480;
     font-size: 16px;
 }
 
-/* CORAÇÕES */
-.coracao {
+/* BOTÃO MÚSICA */
+.musica {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #e75480;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.musica:hover {
+    transform: scale(1.05);
+    background: #d9436f;
+}
+
+/* CORAÇÕES SUBINDO */
+.efeito-coracao {
     position: absolute;
-    color: #ff4d88;
-    animation: subir 5s linear infinite;
+    font-size: 20px;
+    animation: subir 4s linear infinite;
 }
 
 @keyframes subir {
@@ -111,37 +130,79 @@ h1 {
         opacity: 0;
     }
 }
+
+/* CACHORRINHOS */
+.cachorro {
+    position: absolute;
+    font-size: 30px;
+    animation: pular 1s infinite alternate;
+}
+
+@keyframes pular {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
 </style>
 </head>
 
 <body>
 
-<button class="botao" onclick="abrirCarta()">Abrir 💌</button>
+<div class="jogo" id="jogo">
+    <h2>Encontre o coração certo 💗</h2>
+</div>
 
 <div class="carta" id="carta">
     <h1>Para meu amor 💗</h1>
     <p id="texto"></p>
     <div class="final">com carinho sua mulher💕</div>
+
+    <!-- BOTÃO MÚSICA -->
+    <button class="musica" onclick="tocarMusica()">musica q me lembra vc🎵</button>
 </div>
 
 <script>
 const mensagem = `Peaga,
 
-Não sou muito boa em escrever mas eu te amo 💗
-Você é meu par perfeito, me acalma, me cuida e me faz sentir segura.
+Não sou muito boa em escrever mais Eu te amo e acho importante começar com isso,você é literalmente meu par somos feitos um pro outro,eu sou estressada e vc calmo na maioria das vezes,vc me conforta e me faz sentir segura vc é literalmente MEU HOMEM,eu amo você e eu amo estar com você,desculpa por ser chata é paranoica mais é só porque eu te amo tantão e não quero perder você.(os cachorrinhos é homenagem pra vc meu auau)
 
-Desculpa por ser chata às vezes... é só porque eu te amo MUITO e tenho medo de te perder.
+Otiamo momozi. 💕`;
 
-Eu amo você pra sempre. 💕`;
+/* JOGO */
+const total = 15;
+const certo = Math.floor(Math.random() * total);
 
-/* abrir carta */
-function abrirCarta() {
-    document.querySelector(".carta").classList.add("ativa");
-    document.querySelector(".botao").style.display = "none";
-    escrever();
+for (let i = 0; i < total; i++) {
+    const coracao = document.createElement("div");
+    coracao.classList.add("coracao");
+    coracao.innerHTML = "💗";
+
+    coracao.style.left = Math.random() * 90 + "vw";
+    coracao.style.top = Math.random() * 90 + "vh";
+
+    coracao.onclick = () => {
+        if (i === certo) {
+            abrirCarta();
+        } else {
+            coracao.innerHTML = "💔";
+        }
+    };
+
+    document.body.appendChild(coracao);
 }
 
-/* efeito digitando */
+/* ABRIR CARTA */
+function abrirCarta() {
+    document.getElementById("jogo").style.display = "none";
+    document.querySelectorAll(".coracao").forEach(c => c.remove());
+
+    const carta = document.getElementById("carta");
+    carta.style.display = "block";
+
+    escrever();
+    efeitos();
+}
+
+/* TEXTO */
 let i = 0;
 function escrever() {
     if (i < mensagem.length) {
@@ -151,20 +212,33 @@ function escrever() {
     }
 }
 
-/* criar corações */
-setInterval(() => {
-    const coracao = document.createElement("div");
-    coracao.classList.add("coracao");
-    coracao.innerHTML = "💗";
-    coracao.style.left = Math.random() * 100 + "vw";
-    coracao.style.fontSize = Math.random() * 20 + 10 + "px";
+/* BOTÃO MÚSICA */
+function tocarMusica() {
+    window.open("https://www.youtube.com/results?search_query=foi+assim+sotam", "_blank");
+}
 
-    document.body.appendChild(coracao);
+/* EFEITOS */
+function efeitos() {
+    setInterval(() => {
+        const c = document.createElement("div");
+        c.classList.add("efeito-coracao");
+        c.innerHTML = "💗";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+    }, 300);
 
-    setTimeout(() => {
-        coracao.remove();
-    }, 5000);
-}, 300);
+    setInterval(() => {
+        const d = document.createElement("div");
+        d.classList.add("cachorro");
+        d.innerHTML = "🐶";
+        d.style.left = Math.random() * 100 + "vw";
+        d.style.top = Math.random() * 80 + "vh";
+        document.body.appendChild(d);
+        setTimeout(() => d.remove(), 2000);
+    }, 800);
+}
 </script>
 
 </body>
